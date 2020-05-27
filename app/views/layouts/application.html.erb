@@ -9,6 +9,11 @@
   </head>
 
   <body>
+   <div class= "container flash-container">
+      <% flash.each do |type, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+      <% end%>
+    </div>
     <% if current_user %>
       <%= current_user.email %>
       <%= link_to "Log Out", logout_path %>

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       if user.email_confirmed
         sign_in user
-        redirect_back_or root_path, notice: "Logged in!"
+        redirect_to root_path, notice: "Logged in!"
         #session[:user_id] = user.id
         #redirect_to root_url, notice: "Logged in!"
         else

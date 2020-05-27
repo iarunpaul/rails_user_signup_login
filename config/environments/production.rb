@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "shop_#{Rails.env}"
   config.action_mailer.perform_caching = false
-   config.action_mailer.default_url_options = { :host => "https://us-east-2.console.aws.amazon.com" }
+   config.action_mailer.default_url_options = { :host => "https://secret-badlands-03098.herokuapp.com" }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -83,4 +83,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :user_name => 'c1b6438bf00e7c',
+  :password => 'b4ef8db57f7d2b',
+  :address => 'smtp.mailtrap.io',
+  :domain => 'smtp.mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+  }
+  
 end

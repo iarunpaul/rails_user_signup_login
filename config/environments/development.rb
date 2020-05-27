@@ -31,7 +31,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   
-  config.action_mailer.default_url_options = { :host => "https://us-east-2.console.aws.amazon.com" }
+  config.action_mailer.default_url_options = { :host => "https://e455d7b11c2a406ea6e68c2a785abbb1.vfs.cloud9.us-east-2.amazonaws.com" }
 
 
   # Print deprecation notices to the Rails logger.
@@ -54,4 +54,15 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :user_name => 'c1b6438bf00e7c',
+  :password => 'b4ef8db57f7d2b',
+  :address => 'smtp.mailtrap.io',
+  :domain => 'smtp.mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+  }
+  
 end
