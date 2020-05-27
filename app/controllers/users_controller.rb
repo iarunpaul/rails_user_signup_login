@@ -9,11 +9,27 @@ class UsersController < ApplicationController
         
         @user = User.new(user_params)
         if @user.save
-             
-            redirect_to root_path, notice: "Thank you for registering"
+            
+            UserMailer.registration_confirmation(@user).deliver
+            flash[:success] = "Please confirm your email address to continue"
+            redirect_to root_path
         else
+            flash[:alert] = "OOps something went wrong...Please try again"
             render "new"
         end    
+    end
+    
+    def confirm_email
+        user = User.find_by_confirm_token(params[:id])
+        if user
+          user.email_activate
+          flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+          Please sign in to continue."
+          redirect_to login_url
+        else
+          flash[:error] = "Sorry. User does not exist"
+          redirect_to root_url
+        end
     end
     
     private
