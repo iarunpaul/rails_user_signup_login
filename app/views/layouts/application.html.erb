@@ -20,6 +20,7 @@
     <% else %> 
       <%= link_to "Sign up", signup_path, class: 'btn btn-default' %> or
       <%= link_to "Log In", login_path, class: 'btn btn-default' %>
+      <%= link_to "Sign in with Twitter", "/auth/twitter"%>
     <% end %>  
     <%= yield %>
   </body>

@@ -22,6 +22,11 @@ class SessionsController < ApplicationController
     end
   end
   
+  def createtwitter
+    raise env['omniauth.auth'].to_yaml
+  end  
+  
+  
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
